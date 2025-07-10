@@ -74,7 +74,7 @@ PGDATABASE=ta_base
 npm start
 ```
 
-L'API sera accessible sur `http://localhost:3000` (ou le port défini dans `.env`).
+L'API sera accessible sur `https://api-express-backoffice-bdd.onrender.com/pharmacies`
 
 ---
 

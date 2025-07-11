@@ -1,5 +1,4 @@
-const { Pool } = require("pg");
-const pool = new Pool();
+const pool = require("../db");
 const bcrypt = require("bcrypt");
 
 // Récupérer tous les pharmaciens

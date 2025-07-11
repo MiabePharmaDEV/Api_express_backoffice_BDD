@@ -8,6 +8,7 @@ const utilisateurRoutes = require("./routes/utilisateurRoutes");
 const categorieRoutes = require("./routes/categorieRoutes");
 const pharmacienRoutes = require("./routes/pharmacienRoutes");
 const gardeRoutes = require("./routes/gardeRoutes");
+const pool = require("./db");
 
 const app = express();
 app.use(cors());
@@ -20,6 +21,15 @@ app.use("/utilisateurs", utilisateurRoutes);
 app.use("/categories", categorieRoutes);
 app.use("/pharmaciens", pharmacienRoutes);
 app.use("/gardes", gardeRoutes);
+
+app.get("/test-db", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT NOW()");
+    res.json({ success: true, now: result.rows[0].now });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`API démarrée sur le port ${process.env.PORT}`);

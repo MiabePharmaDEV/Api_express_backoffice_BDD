@@ -1,5 +1,4 @@
-const { Pool } = require("pg");
-const pool = new Pool();
+const pool = require("../db");
 
 // Récupérer tous les utilisateurs
 exports.getUtilisateurs = async (req, res) => {

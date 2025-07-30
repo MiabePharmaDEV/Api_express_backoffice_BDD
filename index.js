@@ -8,6 +8,7 @@ const utilisateurRoutes = require("./routes/utilisateurRoutes");
 const categorieRoutes = require("./routes/categorieRoutes");
 const pharmacienRoutes = require("./routes/pharmacienRoutes");
 const gardeRoutes = require("./routes/gardeRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 const pool = require("./db");
 
 const app = express();
@@ -21,6 +22,7 @@ app.use("/utilisateurs", utilisateurRoutes);
 app.use("/categories", categorieRoutes);
 app.use("/pharmaciens", pharmacienRoutes);
 app.use("/gardes", gardeRoutes);
+app.use("/admins", adminRoutes);
 
 app.get("/test-db", async (req, res) => {
   try {
